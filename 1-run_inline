@@ -1,0 +1,9 @@
+#!/bin/bash
+if [[ -z $PYCODE ]]; then
+  echo "La variable de entorno \$PYCODE no está definida."
+  exit 1
+fi
+tempfile=$(mktemp)
+echo "$PYCODE" > "$tempfile"
+python3 "$tempfile"
+rm "$tempfile"
